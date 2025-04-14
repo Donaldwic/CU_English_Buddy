@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CU English Buddy - Ask English Questions Without Fear</title> <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/heroicons@2.1.3/24/outline/index.js"></script>
+    <script type="module" src="https://unpkg.com/heroicons@2.1.3/24/solid/index.js"></script>
+     <style>
+        /* Ensure heroicons display correctly */
+        .heroicon {
+            display: inline-block;
+            width: 1.25em; /* Default size, can be overridden by Tailwind classes */
+            height: 1.25em;
+            vertical-align: -0.25em; /* Adjust vertical alignment */
+            stroke-width: 1.5; /* Default stroke width */
+        }
+        .heroicon-lg { /* Larger icon size */
+             width: 1.5em;
+             height: 1.5em;
+        }
+        .heroicon-xl { /* Extra large icon size */
+             width: 3em;
+             height: 3em;
+        }
+     </style>
+    <style>
+        /* Apply Inter font globally */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth; /* Enable smooth scrolling */
+        }
+        /* Subtle animation for sections */
+        .fade-in {
+            opacity: 0;
+            animation: fadeInAnimation 0.8s ease-out forwards;
+        }
+        @keyframes fadeInAnimation {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Staggered animation delays */
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .delay-6 { animation-delay: 0.6s; } /* Added more delays */
+        .delay-7 { animation-delay: 0.7s; }
+
+        /* Custom button style */
+        .btn-primary {
+            @apply inline-block bg-indigo-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300 ease-in-out;
+        }
+        .btn-secondary {
+             @apply inline-block bg-white text-indigo-600 border border-indigo-600 font-semibold py-2 px-6 rounded-lg shadow-sm hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-300 ease-in-out;
+        }
+        /* Card styling */
+        .content-card { /* Renamed for clarity */
+             @apply bg-white p-6 rounded-xl shadow-lg border border-gray-100 transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl h-full flex flex-col; /* Added h-full and flex */
+        }
+         .content-card .card-content { /* Added for flex-grow */
+             flex-grow: 1;
+         }
+
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-3xl font-extrabold text-indigo-600">CU English Buddy</div>
+            <div class="hidden md:flex items-center space-x-2">
+                <a href="#challenge" class="text-gray-600 hover:text-indigo-600 px-4 py-2 rounded-md text-sm font-medium transition duration-150">The Challenge</a>
+                <a href="#solution" class="text-gray-600 hover:text-indigo-600 px-4 py-2 rounded-md text-sm font-medium transition duration-150">Our Solution</a>
+                <a href="#how-it-works" class="text-gray-600 hover:text-indigo-600 px-4 py-2 rounded-md text-sm font-medium transition duration-150">How It Works</a>
+                <a href="#why-CU English Buddy" class="text-gray-600 hover:text-indigo-600 px-4 py-2 rounded-md text-sm font-medium transition duration-150">Why CU English Buddy?</a>
+                <a href="#ask-question" class="text-gray-600 hover:text-indigo-600 px-4 py-2 rounded-md text-sm font-medium transition duration-150">Ask Question</a>
+                <button class="btn-secondary ml-4">Log In</button>
+                <button class="btn-primary ml-2 !py-2 !px-6">Sign Up</button>
+            </div>
+            <div class="md:hidden">
+                 <button id="mobile-menu-button" class="text-gray-600 hover:text-indigo-600 focus:outline-none">
+                    <hero-icon name="bars-3" class="heroicon w-6 h-6"></hero-icon>
+                </button>
+            </div>
+        </nav>
+         <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+            <a href="#challenge" class="block px-6 py-3 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600">The Challenge</a>
+            <a href="#solution" class="block px-6 py-3 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600">Our Solution</a>
+            <a href="#how-it-works" class="block px-6 py-3 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600">How It Works</a>
+            <a href="#why-CU English Buddy" class="block px-6 py-3 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600">Why CU English Buddy?</a>
+            <a href="#ask-question" class="block px-6 py-3 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600">Ask Question</a>
+            <div class="px-6 py-4 border-t border-gray-100 space-y-3">
+                 <button class="w-full btn-secondary">Log In</button>
+                 <button class="w-full btn-primary">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-gradient-to-br from-indigo-50 to-white py-24 px-6 fade-in">
+        <div class="container mx-auto text-center max-w-4xl">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-indigo-900 mb-6 leading-tight">
+                Afraid to Ask English Questions? <br class="hidden md:block"> Find Your <span class="text-indigo-600">Safe Space</span> Here.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+                Many Thai students feel stuck. You want to improve, but asking feels hard. Get friendly, clear answers from university students in a space where you <span class="font-semibold">dare to ask</span>.
+            </p>
+            <a href="#ask-question" class="btn-primary text-lg shadow-lg">
+                Ask Your First Question
+            </a>
+        </div>
+    </section>
+
+    <section id="challenge" class="py-20 px-6 bg-white fade-in delay-1">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">We Understand the Struggle</h2>
+            <p class="text-lg text-gray-600 mb-12 text-center max-w-3xl mx-auto">Improving English is key for university, but many high school students face hurdles:</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div class="content-card border-t-4 border-red-400">
+                    <hero-icon name="user-minus" class="heroicon-xl text-red-500 mx-auto mb-4"></hero-icon>
+                    <div class="card-content">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Fear in the Classroom</h3>
+                        <p class="text-gray-600">Hesitant to raise your hand, worried about judgment from peers or teachers?</p>
+                    </div>
+                </div>
+                <div class="content-card border-t-4 border-red-400">
+                    <hero-icon name="question-mark-circle" class="heroicon-xl text-red-500 mx-auto mb-4"></hero-icon>
+                     <div class="card-content">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Unclear Explanations</h3>
+                        <p class="text-gray-600">Do lessons sometimes feel confusing? Not sure where to even start asking?</p>
+                     </div>
+                </div>
+                <div class="content-card border-t-4 border-red-400">
+                    <hero-icon name="currency-dollar" class="heroicon-xl text-red-500 mx-auto mb-4"></hero-icon>
+                     <div class="card-content">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Limited & Costly Options</h3>
+                        <p class="text-gray-600">Parents can't always help, and private tutoring is expensive or unavailable.</p>
+                    </div>
+                </div>
+                 <div class="content-card border-t-4 border-red-400">
+                    <hero-icon name="lock-closed" class="heroicon-xl text-red-500 mx-auto mb-4"></hero-icon>
+                     <div class="card-content">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">No Safe Space</h3>
+                        <p class="text-gray-600">Lacking a comfortable place to ask questions confidently and learn at your own pace.</p>
+                    </div>
+                </div>
+            </div>
+             <p class="text-center text-xl text-indigo-800 mt-12 font-semibold">It's not about being lazy; it's about finding the <span class="italic">right</span> support.</p>
+        </div>
+    </section>
+
+    <section id="solution" class="py-20 px-6 bg-indigo-50 fade-in delay-2">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">Our Approach: Friendly Support, Real Answers</h2>
+             <p class="text-lg text-gray-600 mb-12 text-center max-w-3xl mx-auto">CU English Buddy makes asking English questions normal, not scary. We provide:</p>
+            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8 text-left items-stretch"> <div class="content-card">
+                    <div class="flex items-center mb-4">
+                        <hero-icon name="academic-cap" class="heroicon-lg text-indigo-500 mr-3"></hero-icon>
+                        <h3 class="text-xl font-semibold text-gray-800">Guidance from University Students</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="text-gray-600">Connect directly via private chat with experienced Chulalongkorn University students ('Pee Nisit Chula') who explain things clearly and simply.</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <div class="flex items-center mb-4">
+                        <hero-icon name="check-badge" class="heroicon-lg text-indigo-500 mr-3"></hero-icon>
+                        <h3 class="text-xl font-semibold text-gray-800">AI-Verified Accuracy</h3>
+                    </div>
+                     <div class="card-content">
+                        <p class="text-gray-600">Our AI helps ensure the answers you receive are accurate and reliable, giving you confidence in what you learn.</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                     <div class="flex items-center mb-4">
+                        <hero-icon name="chat-bubble-left-ellipsis" class="heroicon-lg text-indigo-500 mr-3"></hero-icon>
+                        <h3 class="text-xl font-semibold text-gray-800">Stress-Free Private Chat</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="text-gray-600">Ask anything about grammar or reading comprehension in a relaxed, one-on-one chat. We're like a helpful 'Pee' (older sibling), not a strict teacher.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="py-20 px-6 bg-white fade-in delay-3">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Getting Help is Easy</h2>
+            <p class="text-lg text-gray-600 mb-12 max-w-xl mx-auto">Just follow these simple steps:</p>
+            <div class="grid md:grid-cols-3 gap-8 text-left">
+                <div class="content-card"> <div class="flex items-center mb-4">
+                         <hero-icon name="pencil-square" class="heroicon-lg text-indigo-500 mr-3"></hero-icon>
+                         <h3 class="text-xl font-semibold text-gray-800">1. Type Your Question</h3>
+                    </div>
+                     <div class="card-content">
+                        <p class="text-gray-600">Enter the platform and ask your question directly, like chatting with a friend. No complex forms.</p>
+                    </div>
+                </div>
+                <div class="content-card"> <div class="flex items-center mb-4">
+                         <hero-icon name="light-bulb" class="heroicon-lg text-indigo-500 mr-3"></hero-icon>
+                         <h3 class="text-xl font-semibold text-gray-800">2. Get Clear Answers</h3>
+                     </div>
+                    <div class="card-content">
+                        <p class="text-gray-600">Receive easy-to-understand explanations, examples, or even short video clips that make sense instantly.</p>
+                    </div>
+                </div>
+                <div class="content-card"> <div class="flex items-center mb-4">
+                        <hero-icon name="users" class="heroicon-lg text-indigo-500 mr-3"></hero-icon>
+                         <h3 class="text-xl font-semibold text-gray-800">3. Learn & Connect</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="text-gray-600">Explore optional mini-courses tailored to your needs or share tips and find study buddies in the community.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ask-question" class="py-20 px-6 bg-indigo-50 fade-in delay-4">
+        <div class="container mx-auto max-w-2xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-gray-900">Have a Question? Ask Now!</h2>
+            <p class="text-center text-gray-600 mb-8">Remember, no question is too small or "silly". We're here to help you understand.</p>
+            <form id="question-form" class="bg-white p-8 md:p-10 rounded-xl shadow-xl border border-gray-100">
+                <div class="mb-6">
+                    <label for="question" class="block text-gray-700 text-sm font-bold mb-2">Your Question <span class="text-red-500">*</span></label>
+                    <textarea id="question" name="question" rows="5" class="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-150" placeholder="e.g., 'What's the difference between 'affect' and 'effect'?' or 'Can you explain this sentence...?'" required></textarea>
+                </div>
+                <div class="mb-8">
+                     <label for="context" class="block text-gray-700 text-sm font-bold mb-2">Optional Context or Details</label>
+                     <input type="text" id="context" name="context" class="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-150" placeholder="e.g., 'From my homework...' or 'I heard this in a song'">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn-primary text-lg w-full md:w-auto">
+                        Get My Answer
+                    </button>
+                </div>
+            </form>
+            <div id="response-message" class="mt-6 text-center font-medium" role="alert" aria-live="assertive"></div>
+        </div>
+    </section>
+
+    <section id="why-CU English Buddy" class="py-20 px-6 bg-white fade-in delay-5">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">Why Choose CU English Buddy?</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="content-card text-center"> <hero-icon name="language" class="heroicon-xl mx-auto mb-4 text-indigo-500"></hero-icon>
+                     <div class="card-content">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Simple Language</h3>
+                        <p class="text-gray-600">We explain things in a way that's easy to grasp, avoiding complex jargon.</p>
+                     </div>
+                </div>
+                <div class="content-card text-center"> <hero-icon name="puzzle-piece" class="heroicon-xl mx-auto mb-4 text-indigo-500"></hero-icon>
+                    <div class="card-content">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Real Understanding</h3>
+                        <p class="text-gray-600">More than just answers – we provide understanding and techniques you can actually use.</p>
+                    </div>
+                </div>
+                <div class="content-card text-center"> <hero-icon name="heart" class="heroicon-xl mx-auto mb-4 text-indigo-500"></hero-icon>
+                     <div class="card-content">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Friendly 'Pee' Support</h3>
+                        <p class="text-gray-600">Learn from relatable university students who communicate like helpful friends, not strict teachers.</p>
+                     </div>
+                </div>
+                 <div class="content-card text-center"> <hero-icon name="bolt" class="heroicon-xl mx-auto mb-4 text-indigo-500"></hero-icon>
+                     <div class="card-content">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Smart Tech, Human Heart</h3>
+                        <p class="text-gray-600">We combine helpful AI for accuracy with the empathy of people who genuinely want to help.</p>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-20 px-6 bg-indigo-50 fade-in delay-6">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">What Students Say</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="content-card p-8"> <p class="text-gray-600 italic mb-4">"I finally feel comfortable asking questions here. The 'Pee' tutors are really patient and explain things well!"</p>
+                    <div class="flex items-center">
+                        <img src="https://placehold.co/40x40/E0E7FF/4F46E5?text=NS" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-semibold text-gray-800">Nida S.</p>
+                            <p class="text-sm text-gray-500">Mathayom 5 Student</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-card p-8"> <p class="text-gray-600 italic mb-4">"CU English Buddy is a lifesaver for homework! Getting quick, clear answers makes learning much less stressful."</p>
+                     <div class="flex items-center">
+                        <img src="https://placehold.co/40x40/C7D2FE/4338CA?text=TP" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-semibold text-gray-800">Tanapon P.</p>
+                            <p class="text-sm text-gray-500">Mathayom 6 Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section class="py-20 px-6 bg-indigo-600 text-white fade-in delay-7">
+        <div class="container mx-auto text-center max-w-3xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Stop Worrying & Start Learning?</h2>
+            <p class="text-lg md:text-xl text-indigo-100 mb-10">
+                Join a community where asking is encouraged. Take the first step towards English confidence today.
+            </p>
+            <a href="#ask-question" class="bg-white text-indigo-600 font-bold py-3 px-10 rounded-lg text-lg shadow-lg hover:bg-gray-100 transition duration-300">
+                Ask Your Question Now
+            </a>
+        </div>
+    </section>
+
+
+    <footer class="bg-gray-900 text-gray-400 py-12 px-6">
+        <div class="container mx-auto text-center md:text-left">
+             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                 <div class="md:col-span-2">
+                     <h3 class="text-xl font-bold text-white mb-4">CU English Buddy</h3>
+                     <p class="text-sm mb-3">Making English learning accessible and understandable for everyone.</p>
+                     <h4 class="font-semibold text-gray-200 mb-2 mt-4">Our Vision</h4>
+                     <p class="text-sm italic">To create a safe, affordable space where Thai students <span class="font-semibold not-italic">dare to ask</span>, <span class="font-semibold not-italic">dare to learn</span>, and <span class="font-semibold not-italic">dare to grow</span> in English.</p>
+                 </div>
+                 <div>
+                     <h4 class="font-semibold text-gray-200 mb-3">Quick Links</h4>
+                     <ul class="space-y-2 text-sm">
+                         <li><a href="#challenge" class="hover:text-indigo-400 transition">The Challenge</a></li>
+                         <li><a href="#solution" class="hover:text-indigo-400 transition">Our Solution</a></li>
+                         <li><a href="#how-it-works" class="hover:text-indigo-400 transition">How It Works</a></li>
+                         <li><a href="#why-CU English Buddy" class="hover:text-indigo-400 transition">Why CU English Buddy?</a></li>
+                         <li><a href="#ask-question" class="hover:text-indigo-400 transition">Ask a Question</a></li>
+                         </ul>
+                 </div>
+                 <div>
+                     <h4 class="font-semibold text-gray-200 mb-3">Support</h4>
+                     <ul class="space-y-2 text-sm">
+                         <li><a href="#" class="hover:text-indigo-400 transition">Help Center</a></li>
+                         <li><a href="#" class="hover:text-indigo-400 transition">Contact Us</a></li>
+                         <li><a href="#" class="hover:text-indigo-400 transition">Privacy Policy</a></li>
+                         <li><a href="#" class="hover:text-indigo-400 transition">Terms of Service</a></li>
+                     </ul>
+                 </div>
+             </div>
+             <div class="mt-10 pt-8 border-t border-gray-700 text-center text-sm">
+                <p>&copy; 2025 CU English Buddy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Get the form and the response message element
+        const form = document.getElementById('question-form');
+        const responseMessage = document.getElementById('response-message');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // --- Form Submission Logic ---
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent page reload
+            const questionText = document.getElementById('question').value;
+
+            if (questionText.trim() === '') {
+                responseMessage.textContent = 'Please enter a question before submitting.';
+                responseMessage.className = 'mt-6 text-center text-red-600 font-medium';
+                return;
+            }
+
+            // Simulate submission
+            console.log('Form submitted!');
+            console.log('Question:', questionText);
+            console.log('Context:', document.getElementById('context').value);
+            responseMessage.textContent = 'Submitting your question...';
+            responseMessage.className = 'mt-6 text-center text-blue-600 font-medium';
+
+            setTimeout(() => {
+                responseMessage.textContent = 'Success! Your question is submitted. Expect an answer soon.';
+                responseMessage.className = 'mt-6 text-center text-green-600 font-medium';
+                form.reset();
+                setTimeout(() => { responseMessage.textContent = ''; }, 6000);
+            }, 1000);
+        });
+
+        // --- Smooth Scrolling Logic ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    const headerOffset = document.querySelector('header').offsetHeight || 70;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open after clicking a link
+                    if (!mobileMenu.classList.contains('hidden')) {
+                         mobileMenu.classList.add('hidden');
+                         // Optional: Change burger icon back to bars if using icon swap
+                         // mobileMenuButton.innerHTML = `<hero-icon name="bars-3" class="heroicon w-6 h-6"></hero-icon>`;
+                    }
+                }
+            });
+        });
+
+         // --- Mobile Menu Toggle Logic ---
+         mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+             // Optional: Change icon to X when open
+            // if (mobileMenu.classList.contains('hidden')) {
+            //     mobileMenuButton.innerHTML = `<hero-icon name="bars-3" class="heroicon w-6 h-6"></hero-icon>`;
+            // } else {
+            //     mobileMenuButton.innerHTML = `<hero-icon name="x-mark" class="heroicon w-6 h-6"></hero-icon>`;
+            // }
+         });
+
+    </script>
+
+</body>
+</html>
